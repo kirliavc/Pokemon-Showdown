@@ -1,7 +1,7 @@
 {
 	"root": true,
 	"parserOptions": {
-		"ecmaVersion": 8,
+		"ecmaVersion": 9,
 		"sourceType": "script",
 		"ecmaFeatures": {
 			"globalReturn": true
@@ -12,9 +12,9 @@
 		"node": true
 	},
 	"globals": {
-		"Config": false, "Monitor": false, "toId": false, "Dex": false, "LoginServer": false,
+		"Config": false, "Monitor": false, "toID": false, "Dex": false, "LoginServer": false,
 		"Users": false, "Punishments": false, "Rooms": false, "Verifier": false, "Chat": false,
-		"Tournaments": false, "Dnsbl": false, "Sockets": false, "TeamValidator": false,
+		"Tournaments": false, "IPTools": false, "Sockets": false, "TeamValidator": false,
 		"TeamValidatorAsync": false, "Ladders": false
 	},
 	"extends": "eslint:recommended",
@@ -24,12 +24,13 @@
 		"no-control-regex": "off",
 		"no-empty": ["error", {"allowEmptyCatch": true}],
 		"no-inner-declarations": ["error", "functions"],
+		"require-atomic-updates": "off",
 		"valid-jsdoc": "off",
 
 		"eol-last": ["error", "always"],
 		"array-callback-return": "error",
 		"block-scoped-var": "error",
-		"comma-dangle": ["error", "always-multiline"],
+		"comma-dangle": ["error", {"arrays": "always-multiline", "objects": "always-multiline", "imports": "always-multiline", "exports": "always-multiline", "functions": "ignore"}],
 		"complexity": "off",
 		"consistent-return": "off",
 		"curly": ["error", "multi-line", "consistent"],
@@ -83,11 +84,10 @@
 		"strict": ["error", "global"],
 
 		"init-declarations": "off",
-		"no-catch-shadow": "off",
+		"no-shadow": "off",
 		"no-label-var": "error",
 		"no-restricted-globals": ["error", "Proxy", "Reflect", "Symbol", "WeakSet"],
 		"no-shadow-restricted-names": "error",
-		"no-shadow": "off",
 		"no-undef": ["error", {"typeof": true}],
 		"no-undefined": "off",
 		"no-unused-vars": ["warn", {"args": "none"}],
@@ -121,8 +121,7 @@
 		"max-statements-per-line": "off",
 		"new-cap": ["error", {"newIsCap": true, "capIsNew": false}],
 		"new-parens": "error",
-		"newline-after-var": "off",
-		"newline-before-return": "off",
+		"padding-line-between-statements": "off",
 		"no-array-constructor": "error",
 		"no-continue": "off",
 		"no-inline-comments": "off",
@@ -132,12 +131,13 @@
 		"no-negated-condition": "off",
 		"no-nested-ternary": "off",
 		"no-new-object": "error",
-		"no-spaced-func": "error",
+		"func-call-spacing": "error",
 		"no-ternary": "off",
 		"no-trailing-spaces": ["error", {"ignoreComments": false}],
 		"no-underscore-dangle": "off",
 		"no-unneeded-ternary": "error",
 		"object-curly-spacing": ["error", "never"],
+		"object-shorthand": ["error", "methods"],
 		"one-var": "off",
 		"operator-assignment": "off",
 		"operator-linebreak": ["error", "after"],

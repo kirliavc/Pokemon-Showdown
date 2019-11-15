@@ -4,24 +4,36 @@
   "description": "The server for the Pokémon Showdown battle simulator",
   "version": "0.11.2",
   "dependencies": {
-    "sockjs": "0.3.18"
+    "probe-image-size": "^5.0.0",
+    "sockjs": "0.3.19",
+    "sucrase": "^3.10.1"
   },
   "optionalDependencies": {
-    "cloud-env": "0.2.2",
-    "node-oom-heapdump": "^1.0.10",
-    "node-static": "0.7.10",
-    "nodemailer": "4.4.0",
-    "permessage-deflate": "^0.1.6"
+    "cloud-env": "^0.2.3",
+    "node-oom-heapdump": "^1.1.4",
+    "node-static": "^0.7.11",
+    "nodemailer": "^6.3.0",
+    "permessage-deflate": "^0.1.7",
+    "sql-template-strings": "^2.2.2",
+    "sqlite": "^3.0.3"
   },
   "engines": {
     "node": ">=7.7.0"
   },
   "scripts": {
-    "start": "node pokemon-showdown",
-    "test": "eslint --cache . && tsc && mocha",
+    "start": "node pokemon-showdown start",
+    "build": "node build",
     "tsc": "tsc",
-    "lint": "eslint --cache .",
-    "prepush": "npm test"
+    "lint": "eslint --cache . && tslint --project .",
+    "pretest": "npm run lint && npm run build",
+    "test": "mocha",
+    "posttest": "npm run tsc",
+    "fulltest": "npm run pretest && npm run tsc && mocha -g \".*\""
+  },
+  "husky": {
+    "hooks": {
+      "pre-push": "eslint --cache ."
+    }
   },
   "bin": "./pokemon-showdown",
   "homepage": "http://pokemonshowdown.com",
@@ -49,11 +61,16 @@
   "private": true,
   "license": "MIT",
   "devDependencies": {
-    "@types/node": "^8.0.32",
-    "@types/nodemailer": "^4.3.0",
-    "eslint": "^4.16.0",
-    "husky": "^0.14.3",
-    "mocha": "^4.0.1",
-    "typescript": "2.8.3"
+    "@types/cloud-env": "^0.2.0",
+    "@types/node": "^12.7.11",
+    "@types/node-static": "^0.7.3",
+    "@types/nodemailer": "^6.2.1",
+    "@types/sockjs": "^0.3.31",
+    "eslint": "^6.5.1",
+    "husky": "^3.0.8",
+    "mocha": "^6.2.1",
+    "smogon": "^0.0.4",
+    "tslint": "^5.20.0",
+    "typescript": "^3.6.3"
   }
 }

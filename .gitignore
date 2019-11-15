@@ -4,11 +4,21 @@
 /logs/*
 /node_modules
 /eslint-cache
-/chat-plugins/private.js
-/chat-plugins/*-private.js
+/server/chat-plugins/private/*
+/server/chat-plugins/private.js
+/server/chat-plugins/*-private.js
 npm-debug.log
 .eslintcache
 package-lock.json
+/tools/set-import/sets
+databases/*.db*
+
+# Typescript build artifacts
+.*-dist/
+tools/set-import/importer.js
+
+# visual studio live share
+.vs
 
 # boilerplate #
 ###############
@@ -29,7 +39,6 @@ tmp/**/*
 .installed.cfg
 
 downloads
-build
 dist
 
 # egg related
@@ -51,3 +60,8 @@ local_settings.py
 .svn
 
 pip-log.txt
+
+# PS China
+config/ipbans.txt
+config.zip
+logs.zip
